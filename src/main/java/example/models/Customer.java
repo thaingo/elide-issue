@@ -1,6 +1,5 @@
 package example.models;
 
-import com.yahoo.elide.annotation.Exclude;
 import com.yahoo.elide.annotation.Include;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,6 @@ public class Customer {
     private long id;
     private String email;
 
-    @Exclude
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private List<Shop> shops = new ArrayList<>();
 

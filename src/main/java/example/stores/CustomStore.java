@@ -9,27 +9,28 @@ import com.yahoo.elide.core.sort.Sorting;
 import com.yahoo.elide.datastores.jpa.JpaDataStore;
 import com.yahoo.elide.datastores.jpa.transaction.JpaTransaction;
 import example.models.Customer;
+import example.models.Shop;
 import java.io.Serializable;
 import java.util.Optional;
 
-public class CustomerStore extends JpaDataStore {
+public class CustomStore extends JpaDataStore {
 
-    public CustomerStore(
+    public CustomStore(
         EntityManagerSupplier entityManagerSupplier,
         JpaTransactionSupplier transactionSupplier) {
-        super(entityManagerSupplier, transactionSupplier, Customer.class);
+        super(entityManagerSupplier, transactionSupplier, Customer.class, Shop.class);
     }
 
     @Override
     public DataStoreTransaction beginTransaction() {
         JpaTransaction jpaTxn = (JpaTransaction) super.beginTransaction();
         jpaTxn.begin();
-        return new AccountStoreTransaction(jpaTxn);
+        return new CustomStoreTransaction(jpaTxn);
     }
 
-    private class AccountStoreTransaction extends TransactionWrapper {
+    private class CustomStoreTransaction extends TransactionWrapper {
 
-        AccountStoreTransaction(DataStoreTransaction wrappedTxn) {
+        CustomStoreTransaction(DataStoreTransaction wrappedTxn) {
             super(wrappedTxn);
         }
 

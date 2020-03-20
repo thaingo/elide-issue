@@ -11,8 +11,8 @@
         <jar.finalName>elide-spring-boot</jar.finalName>
         <postgres.version>42.2.7</postgres.version>
         <liquibase.version>3.8.1</liquibase.version>
-        <elide.version>4.5.9</elide.version>
-        <spring.version>2.2.2.RELEASE</spring.version>
+        <elide.version>4.5.13</elide.version>
+        <spring.version>2.2.5.RELEASE</spring.version>
     </properties>
 
     <dependencies>
